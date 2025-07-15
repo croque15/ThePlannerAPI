@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "TQtkJt4OCdvtRHufa046lWeHaPZ0eTQKhJYhpSW5JEgC2k6MDwD2WkDjxahMZQ6Nqk5X6eqNN2L5goV3+Sn/XQ==",
+  "dgSpecHash": "ZDGp+LKRr+0ViypAUFbB5QaKp1hQ2GPUygJczgMorbIFUGY3vlo4q2SeucxS3zDGw4yuY/7aQPAViRh9D/dfOQ==",
   "success": true,
   "projectFilePath": "/Users/cristinaroque/Documents/PlannerAPI/ThePlannerAPI/ThePlannerAPI/ThePlannerAPI.csproj",
   "expectedPackageFiles": [
@@ -13,6 +13,7 @@
     "/Users/cristinaroque/.nuget/packages/microsoft.entityframeworkcore/9.0.7/microsoft.entityframeworkcore.9.0.7.nupkg.sha512",
     "/Users/cristinaroque/.nuget/packages/microsoft.entityframeworkcore.abstractions/9.0.7/microsoft.entityframeworkcore.abstractions.9.0.7.nupkg.sha512",
     "/Users/cristinaroque/.nuget/packages/microsoft.entityframeworkcore.analyzers/9.0.7/microsoft.entityframeworkcore.analyzers.9.0.7.nupkg.sha512",
+    "/Users/cristinaroque/.nuget/packages/microsoft.entityframeworkcore.inmemory/9.0.7/microsoft.entityframeworkcore.inmemory.9.0.7.nupkg.sha512",
     "/Users/cristinaroque/.nuget/packages/microsoft.entityframeworkcore.relational/9.0.7/microsoft.entityframeworkcore.relational.9.0.7.nupkg.sha512",
     "/Users/cristinaroque/.nuget/packages/microsoft.entityframeworkcore.sqlserver/9.0.7/microsoft.entityframeworkcore.sqlserver.9.0.7.nupkg.sha512",
     "/Users/cristinaroque/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

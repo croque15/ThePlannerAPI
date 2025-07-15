@@ -14,31 +14,47 @@ namespace ThePlannerAPI.Services
             _context = context;
         }
 
-        public async Task<IEnumerable<PlannerEventDTO>> GetAllEventsAsync()
-        {
-            return await _context.PlannerEvents
-                .Select(e => new PlannerEventDTO
+       public async Task<IEnumerable<PlannerEventDTO>> GetAllEventsAsync()  
+       { 
+            try
+            { 
+                if (_context?.PlannerEvents == null)
                 {
-                    Id = e.Id,
-                    Name = e.Name,
-                    StartDate = e.StartDate,
-                    EndDate = e.EndDate,
-                    Resource = e.Resource,
-                    Color = e.Color,
-                    JobID = e.JobID,
-                    ShipName = e.ShipName,
-                    JobCode = e.JobCode,
-                    Description = e.Description,
-                    ClientName = e.ClientName,
-                    DeparturePort = e.DeparturePort,
-                    ArrivalPort = e.ArrivalPort,
-                    EditBy = e.EditBy,
-                    PlannerEventType = e.PlannerEventType,
-                    TravelDays = e.TravelDays,
-                    IsCTS = e.IsCTS
-                })
-                .ToListAsync();
+                    Console.WriteLine("PlannerEvents DbSet is null.");
+                    return Enumerable.Empty<PlannerEventDTO>();
+                }
+
+                var events = await _context.PlannerEvents
+                    .Select(e => new PlannerEventDTO
+                    {   
+                        Id = e.Id,
+                        Name = e.Name,
+                        StartDate = e.StartDate,
+                        EndDate = e.EndDate,
+                        Resource = e.Resource,
+                        Color = e.Color,
+                        JobID = e.JobID,
+                        ShipName = e.ShipName,
+                        JobCode = e.JobCode,
+                        Description = e.Description,
+                        ClientName = e.ClientName,
+                        DeparturePort = e.DeparturePort,
+                        ArrivalPort = e.ArrivalPort,
+                        EditBy = e.EditBy,
+                        PlannerEventType = e.PlannerEventType,
+                        TravelDays = e.TravelDays,
+                        IsCTS = e.IsCTS
+                    }).ToListAsync();
+
+                return events;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in GetAllEventsAsync: {ex.Message}");
+                return Enumerable.Empty<PlannerEventDTO>();
+            }
         }
+
 
         public async Task<PlannerEventDTO> GetEventByIdAsync(int id)
         {
