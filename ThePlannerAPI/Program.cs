@@ -13,6 +13,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSignalR();
 builder.Services.AddCors();
 
+
 builder.Services.AddScoped<IPlannerService, PlannerEventService>();
 
 builder.Services.AddDbContext<PlannerDbContext>(options =>
