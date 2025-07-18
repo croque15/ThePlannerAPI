@@ -11,10 +11,10 @@ namespace ThePlannerAPI.Controllers
     [Route("api/[controller]")]
     public class PlannerController : ControllerBase
     {
-        private static List<Person> people = new List<Person>
+        private static List<Resource> people = new List<Resource>
         {
-            new Person { Id = 1, Name = "Cristina Roque" },
-            new Person { Id = 2, Name = "John Doe" }
+            new Resource { Id = 1, Name = "Cristina Roque" },
+            new Resource { Id = 2, Name = "John Doe" }
         };
 
         private static List<TaskAssignment> tasks = new List<TaskAssignment>
@@ -22,7 +22,7 @@ namespace ThePlannerAPI.Controllers
             new TaskAssignment {
                 Id = 1,
                 TaskName = "Design",
-                PersonId = 1,
+                ResourceId = 1,
                 StartDate = DateTime.Now,
                 EndDate = DateTime.Now.AddDays(3)
             },
@@ -30,14 +30,14 @@ namespace ThePlannerAPI.Controllers
             {
                 Id = 2,
                 TaskName = "Development",
-                PersonId = 2,
+                ResourceId = 2,
                 StartDate = DateTime.Now.AddDays(1),
                 EndDate = DateTime.Now.AddDays(5)
             }
         };
 
         [HttpGet("people")]
-        public ActionResult<List<Person>> GetPeople()
+        public ActionResult<List<Resource>> GetPeople()
         {
             return Ok(people);
         }
@@ -49,18 +49,18 @@ namespace ThePlannerAPI.Controllers
         }
 
         [HttpGet("tasks/by-person/{personId}")]
-        public ActionResult<List<TaskAssignment>> GetTasksByPerson(int personId)
+        public ActionResult<List<TaskAssignment>> GetTasksByResource(int personId)
         {
-            var assignedTasks = tasks.Where(t => t.PersonId == personId).ToList();
+            var assignedTasks = tasks.Where(t => t.ResourceId == personId).ToList();
             return Ok(assignedTasks);   
         }
 
         [HttpPost("people")]
-        public ActionResult<Person> AddPerson([FromBody] Person newPerson)
+        public ActionResult<Resource> AddResource([FromBody] Resource newResource)
         {
-            newPerson.Id = people.Max(p => p.Id) + 1;
-            people.Add(newPerson);
-            return CreatedAtAction(nameof(GetPeople), new { id = newPerson.Id }, newPerson);
+            newResource.Id = people.Max(p => p.Id) + 1;
+            people.Add(newResource);
+            return CreatedAtAction(nameof(GetPeople), new { id = newResource.Id }, newResource);
         }
 
         [HttpPost("tasks")]

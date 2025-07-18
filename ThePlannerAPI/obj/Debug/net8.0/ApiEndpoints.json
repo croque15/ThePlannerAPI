@@ -9,7 +9,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[ThePlannerAPI.Models.Person, ThePlannerAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[ThePlannerAPI.Models.Resource, ThePlannerAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -21,21 +21,21 @@
   },
   {
     "ContainingType": "ThePlannerAPI.Controllers.PlannerController",
-    "Method": "AddPerson",
+    "Method": "AddResource",
     "RelativePath": "api/Planner/people",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "newPerson",
-        "Type": "ThePlannerAPI.Models.Person",
+        "Name": "newResource",
+        "Type": "ThePlannerAPI.Models.Resource",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "ThePlannerAPI.Models.Person",
+        "Type": "ThePlannerAPI.Models.Resource",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -93,7 +93,7 @@
   },
   {
     "ContainingType": "ThePlannerAPI.Controllers.PlannerController",
-    "Method": "GetTasksByPerson",
+    "Method": "GetTasksByResource",
     "RelativePath": "api/Planner/tasks/by-person/{personId}",
     "HttpMethod": "GET",
     "IsController": true,

@@ -16,7 +16,8 @@ builder.Services.AddCors();
 builder.Services.AddScoped<IPlannerService, PlannerEventService>();
 
 builder.Services.AddDbContext<PlannerDbContext>(options =>
-    options.UseInMemoryDatabase("PlannerDb"));
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
 var app = builder.Build();
 
@@ -26,8 +27,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-app.UseHttpsRedirection();
 
 app.UseCors(policy => 
     policy.AllowAnyOrigin()

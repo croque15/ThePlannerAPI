@@ -60,11 +60,11 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Person.cs",
-              "DocumentMoniker": "C:\\Users\\derpy\\source\\repos\\ThePlannerAPI\\ThePlannerAPI\\Models\\Person.cs",
-              "RelativeDocumentMoniker": "ThePlannerAPI\\Models\\Person.cs",
-              "ToolTip": "C:\\Users\\derpy\\source\\repos\\ThePlannerAPI\\ThePlannerAPI\\Models\\Person.cs",
-              "RelativeToolTip": "ThePlannerAPI\\Models\\Person.cs",
+              "Title": "Resource.cs",
+              "DocumentMoniker": "C:\\Users\\derpy\\source\\repos\\ThePlannerAPI\\ThePlannerAPI\\Models\\Resource.cs",
+              "RelativeDocumentMoniker": "ThePlannerAPI\\Models\\Resource.cs",
+              "ToolTip": "C:\\Users\\derpy\\source\\repos\\ThePlannerAPI\\ThePlannerAPI\\Models\\Resource.cs",
+              "RelativeToolTip": "ThePlannerAPI\\Models\\Resource.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-05T03:38:41.777Z"

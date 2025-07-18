@@ -31,7 +31,7 @@ namespace ThePlannerAPI.Services
                         Name = e.Name,
                         StartDate = e.StartDate,
                         EndDate = e.EndDate,
-                        Resource = e.Resource,
+                        Resource = e.ResourceId,
                         Color = e.Color,
                         JobID = e.JobID,
                         ShipName = e.ShipName,
@@ -41,7 +41,7 @@ namespace ThePlannerAPI.Services
                         DeparturePort = e.DeparturePort,
                         ArrivalPort = e.ArrivalPort,
                         EditBy = e.EditBy,
-                        PlannerEventType = e.PlannerEventType,
+                        PlannerEventType = e.PlannerEventTypeId,
                         TravelDays = e.TravelDays,
                         IsCTS = e.IsCTS
                     }).ToListAsync();
@@ -67,7 +67,7 @@ namespace ThePlannerAPI.Services
                 Name = e.Name,
                 StartDate = e.StartDate,
                 EndDate = e.EndDate,
-                Resource = e.Resource,
+                Resource = e.ResourceId,
                 Color = e.Color,
                 JobID = e.JobID,
                 ShipName = e.ShipName,
@@ -77,7 +77,7 @@ namespace ThePlannerAPI.Services
                 DeparturePort = e.DeparturePort,
                 ArrivalPort = e.ArrivalPort,
                 EditBy = e.EditBy,
-                PlannerEventType = e.PlannerEventType,
+                PlannerEventType = e.PlannerEventTypeId,
                 TravelDays = e.TravelDays,
                 IsCTS = e.IsCTS
             };
@@ -103,7 +103,7 @@ namespace ThePlannerAPI.Services
                 Name = dto.Name,
                 StartDate = dto.StartDate,
                 EndDate = dto.EndDate,
-                Resource = dto.Resource,
+                ResourceId = dto.Resource,
                 Color = dto.Color,
                 JobID = dto.JobID,
                 ShipName = dto.ShipName,
@@ -113,7 +113,7 @@ namespace ThePlannerAPI.Services
                 DeparturePort = dto.DeparturePort,
                 ArrivalPort = dto.ArrivalPort,
                 EditBy = dto.EditBy,
-                PlannerEventType = dto.PlannerEventType,
+                PlannerEventTypeId = dto.PlannerEventType,
                 TravelDays = dto.TravelDays,
                 IsCTS = dto.IsCTS
             };
@@ -133,7 +133,7 @@ namespace ThePlannerAPI.Services
             entity.Name = dto.Name;
             entity.StartDate = dto.StartDate;
             entity.EndDate = dto.EndDate;
-            entity.Resource = dto.Resource;
+            entity.ResourceId = dto.Resource;
             entity.Color = dto.Color;
             entity.JobID = dto.JobID;
             entity.ShipName = dto.ShipName;
@@ -143,7 +143,7 @@ namespace ThePlannerAPI.Services
             entity.DeparturePort = dto.DeparturePort;
             entity.ArrivalPort = dto.ArrivalPort;
             entity.EditBy = dto.EditBy;
-            entity.PlannerEventType = dto.PlannerEventType;
+            entity.PlannerEventTypeId = dto.PlannerEventType;
             entity.TravelDays = dto.TravelDays;
             entity.IsCTS = dto.IsCTS;
 
