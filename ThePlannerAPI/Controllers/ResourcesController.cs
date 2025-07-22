@@ -23,7 +23,7 @@ namespace ThePlannerAPI.Controllers
                 .Select(r => new
                 {
                     key = r.Id,
-                    label = r.namespace
+                    label = r.Name
                 })
                 .ToListAsync();
 
