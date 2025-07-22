@@ -63,6 +63,52 @@ namespace ThePlannerAPI.Controllers
             return NoContent();
         }
 
+        // DHTMLX Compatiable GET
+        [HttpGet("dhtmlx")]
+        public async Task<IActionResult> GetForDhtmlx()
+        {
+            var events = await _service.GetAllEventsAsync();
+            var formatted = events.Select(e => new
+            {
+                id = e.Id,
+                start_date = e.StartDate.ToString("s"),
+                end_date = e.EndDate.ToString("s"),
+                text = e.Name,
+                details = e.Description,
+                section_id = e.Resource
+            });
+
+            return Ok(formatted);
+        }
+
+        // DHTMLX POST
+        [HttpPost("dhtmlx")]
+        public async Task<IActionResult> CreateForDhtmlx([FromForm] PlannerEventDTO dto)
+        {
+            var created = await _service.CreateEventAsync(dto);
+            await _hubContext.Clients.All.SendAsync("NewEventCreated", created);
+            return Ok(new { action = "inserted", tid = created.Id });
+        }
+
+        // DHTMLX PUT
+        [HttpPut("dhtmlx/{id}")]
+        public async Task<IActionResult> UpdateForDhtmlx(int id, [FromForm] PlannerEventDTO dto)
+        {
+            var updated = await _service.UpdateEventAsync(id, dto);
+            if (updated == null) return NotFound();
+            await _hubContext.Clients.All.SendAsync("EventUpdated", updated);
+            return Ok(new { action = "updated" });
+        }
+
+        // DHTMLX DELETE
+        [HttpDelete("dhtmlx/{id}")]
+        public async Task<IActionResult> DeleteForDhtmlx(int id)
+        {
+            var deleted = await _service.DeleteEventAsync(id);
+            if (!deleted) return NotFound();
+            await _hubContext.Clients.All.SendAsync("EventDeleted", id);
+            return Ok(new { action = "deleted" });
+        }
 
     }
 }

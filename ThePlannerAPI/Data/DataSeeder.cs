@@ -35,7 +35,7 @@ namespace ThePlannerAPI.Data
                     Id = i,
                     Name = $"Event {i}",
                     StartDate = DateTime.Today.AddDays(i),
-                    EndDate = DateTime.Today.AddDays(i).AddHours(2),
+                    EndDate = DateTime.Today.AddDays(i).AddDays(i % 7 + 1),
                     ResourceId = (i % 12) + 1,
                     Color = "#FFCC00",
                     JobID = 1000 + i,
