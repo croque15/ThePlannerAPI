@@ -27,10 +27,10 @@ namespace ThePlannerAPI.Controllers
 
             var dhtmlxFormatted = allEvents.Select(e => new
             {
-                id = e.Id,
-                start_date = e.StartDate.ToString("s"), // ISO 8601
-                end_date = e.EndDate.ToString("s"),
-                text = e.Description
+                id = e.id,
+                start_date = e.start_date.ToString("s"), // ISO 8601
+                end_date = e.end_date.ToString("s"),
+                text = e.text
             });
 
             return Ok(dhtmlxFormatted);

@@ -14,10 +14,10 @@ namespace ThePlannerAPI.Services
             _context = context;
         }
 
-       public async Task<IEnumerable<PlannerEventDTO>> GetAllEventsAsync()  
-       { 
+        public async Task<IEnumerable<PlannerEventDTO>> GetAllEventsAsync()
+        {
             try
-            { 
+            {
                 if (_context?.PlannerEvents == null)
                 {
                     Console.WriteLine("PlannerEvents DbSet is null.");
@@ -26,24 +26,24 @@ namespace ThePlannerAPI.Services
 
                 var events = await _context.PlannerEvents
                     .Select(e => new PlannerEventDTO
-                    {   
-                        Id = e.Id,
-                        Name = e.Name,
-                        StartDate = e.StartDate,
-                        EndDate = e.EndDate,
+                    {
+                        id = e.Id,
+                        name = e.Name,
+                        start_date = e.StartDate,
+                        end_date = e.EndDate,
                         Resource = e.ResourceId,
                         Color = e.Color,
                         JobID = e.JobID,
                         ShipName = e.ShipName,
                         JobCode = e.JobCode,
-                        Description = e.Description,
+                        text = e.Description,
                         ClientName = e.ClientName,
                         DeparturePort = e.DeparturePort,
                         ArrivalPort = e.ArrivalPort,
                         EditBy = e.EditBy,
                         PlannerEventType = e.PlannerEventTypeId,
                         TravelDays = e.TravelDays,
-                        IsCTS = e.IsCTS
+                        IsC = e.IsCTS
                     }).ToListAsync();
 
                 return events;
@@ -55,7 +55,6 @@ namespace ThePlannerAPI.Services
             }
         }
 
-
         public async Task<PlannerEventDTO> GetEventByIdAsync(int id)
         {
             var e = await _context.PlannerEvents.FindAsync(id);
@@ -63,29 +62,29 @@ namespace ThePlannerAPI.Services
 
             return new PlannerEventDTO
             {
-                Id = e.Id,
-                Name = e.Name,
-                StartDate = e.StartDate,
-                EndDate = e.EndDate,
+                id = e.Id,
+                name = e.Name,
+                start_date = e.StartDate,
+                end_date = e.EndDate,
                 Resource = e.ResourceId,
                 Color = e.Color,
                 JobID = e.JobID,
                 ShipName = e.ShipName,
                 JobCode = e.JobCode,
-                Description = e.Description,
+                text = e.Description,
                 ClientName = e.ClientName,
                 DeparturePort = e.DeparturePort,
                 ArrivalPort = e.ArrivalPort,
                 EditBy = e.EditBy,
                 PlannerEventType = e.PlannerEventTypeId,
                 TravelDays = e.TravelDays,
-                IsCTS = e.IsCTS
+                IsC = e.IsCTS
             };
         }
 
         public async Task<PlannerEventDTO> CreateEventAsync(PlannerEventDTO dto)
         {
-            if (dto.PlannerEventType == 1 && dto.Name != dto.JobCode)
+            if (dto.PlannerEventType == 1 && dto.name != dto.JobCode)
             {
                 throw new Exception("For Job Events, Name must equal JobCode.");
             }
@@ -100,28 +99,28 @@ namespace ThePlannerAPI.Services
 
             var entity = new PlannerEvent
             {
-                Name = dto.Name,
-                StartDate = dto.StartDate,
-                EndDate = dto.EndDate,
+                Name = dto.name,
+                StartDate = dto.start_date,
+                EndDate = dto.end_date,
                 ResourceId = dto.Resource,
                 Color = dto.Color,
                 JobID = dto.JobID,
                 ShipName = dto.ShipName,
                 JobCode = dto.JobCode,
-                Description = dto.Description,
+                Description = dto.text,
                 ClientName = dto.ClientName,
                 DeparturePort = dto.DeparturePort,
                 ArrivalPort = dto.ArrivalPort,
                 EditBy = dto.EditBy,
                 PlannerEventTypeId = dto.PlannerEventType,
                 TravelDays = dto.TravelDays,
-                IsCTS = dto.IsCTS
+                IsCTS = dto.IsC
             };
 
             _context.PlannerEvents.Add(entity);
             await _context.SaveChangesAsync();
 
-            dto.Id = entity.Id;
+            dto.id = entity.Id;
             return dto;
         }
 
@@ -130,22 +129,22 @@ namespace ThePlannerAPI.Services
             var entity = await _context.PlannerEvents.FindAsync(id);
             if (entity == null) return null;
 
-            entity.Name = dto.Name;
-            entity.StartDate = dto.StartDate;
-            entity.EndDate = dto.EndDate;
+            entity.Name = dto.name;
+            entity.StartDate = dto.start_date;
+            entity.EndDate = dto.end_date;
             entity.ResourceId = dto.Resource;
             entity.Color = dto.Color;
             entity.JobID = dto.JobID;
             entity.ShipName = dto.ShipName;
             entity.JobCode = dto.JobCode;
-            entity.Description = dto.Description;
+            entity.Description = dto.text;
             entity.ClientName = dto.ClientName;
             entity.DeparturePort = dto.DeparturePort;
             entity.ArrivalPort = dto.ArrivalPort;
             entity.EditBy = dto.EditBy;
             entity.PlannerEventTypeId = dto.PlannerEventType;
             entity.TravelDays = dto.TravelDays;
-            entity.IsCTS = dto.IsCTS;
+            entity.IsCTS = dto.IsC;
 
             await _context.SaveChangesAsync();
             return dto;

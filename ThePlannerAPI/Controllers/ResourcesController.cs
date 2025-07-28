@@ -22,9 +22,10 @@ namespace ThePlannerAPI.Controllers
             var resources = await _context.Resources
                 .Select(r => new
                 {
-                    key = r.Id,
-                    label = r.Name
+                    key = r.Id, 
+                    label = $"{r.FirstName} {r.LastName}"
                 })
+
                 .ToListAsync();
 
             return Ok(resources);
