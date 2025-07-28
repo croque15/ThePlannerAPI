@@ -20,6 +20,15 @@ builder.Services.AddDbContext<PlannerDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.PropertyNamingPolicy = null; 
+});
+builder.Services.AddSignalR().AddJsonProtocol(options =>
+{
+    options.PayloadSerializerOptions.PropertyNamingPolicy = null; 
+});
+
 var app = builder.Build();
 
 // Setting up the HTTP request pipeline.
