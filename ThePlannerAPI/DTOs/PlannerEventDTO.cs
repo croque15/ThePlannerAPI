@@ -5,7 +5,7 @@ namespace ThePlannerAPI.DTOs
     public class PlannerEventDTO
     {
         public int id { get; set; }
-        public string name { get; set; }
+        public string Name { get; set; }
         public DateTime start_date { get; set; }
         public DateTime end_date { get; set; }
         public int Resource { get; set; }
@@ -20,6 +20,5 @@ namespace ThePlannerAPI.DTOs
         public string EditBy { get; set; }
         public int PlannerEventType { get; set; }
         public int TravelDays { get; set; }
-        public bool IsC { get; set; }
     }
 }

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ThePlannerAPI.Data;
 using ThePlannerAPI.Models;
+using ThePlannerAPI.DTOs;
 
 namespace ThePlannerAPI.Controllers
 {
@@ -17,13 +18,19 @@ namespace ThePlannerAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ResourcesController>>> GetResources()
+        public async Task<ActionResult<IEnumerable<EmployeeDTO>>> GetResources()
         {
             var resources = await _context.Resources
                 .Select(r => new
                 {
-                    key = r.Id, 
-                    label = $"{r.FirstName} {r.LastName}"
+                    Key = r.Id,
+                    Label = $"{r.FirstName} {r.LastName}",
+                    FirstName = r.FirstName,
+                    LastName = r.LastName,
+                    Sector = r.Sector,
+                    MedCert = r.MedCert,
+                    Days = r.Hours,
+                    ResourceType = r.ResourceType
                 })
 
                 .ToListAsync();

@@ -28,7 +28,7 @@ namespace ThePlannerAPI.Services
                     .Select(e => new PlannerEventDTO
                     {
                         id = e.Id,
-                        name = e.Name,
+                        Name = e.Name,
                         start_date = e.StartDate,
                         end_date = e.EndDate,
                         Resource = e.ResourceId,
@@ -43,7 +43,7 @@ namespace ThePlannerAPI.Services
                         EditBy = e.EditBy,
                         PlannerEventType = e.PlannerEventTypeId,
                         TravelDays = e.TravelDays,
-                        IsC = e.IsCTS
+                        
                     }).ToListAsync();
 
                 return events;
@@ -63,7 +63,7 @@ namespace ThePlannerAPI.Services
             return new PlannerEventDTO
             {
                 id = e.Id,
-                name = e.Name,
+                Name = e.Name,
                 start_date = e.StartDate,
                 end_date = e.EndDate,
                 Resource = e.ResourceId,
@@ -78,13 +78,13 @@ namespace ThePlannerAPI.Services
                 EditBy = e.EditBy,
                 PlannerEventType = e.PlannerEventTypeId,
                 TravelDays = e.TravelDays,
-                IsC = e.IsCTS
+                
             };
         }
 
         public async Task<PlannerEventDTO> CreateEventAsync(PlannerEventDTO dto)
         {
-            if (dto.PlannerEventType == 1 && dto.name != dto.JobCode)
+            if (dto.PlannerEventType == 1 && dto.Name != dto.JobCode)
             {
                 throw new Exception("For Job Events, Name must equal JobCode.");
             }
@@ -99,7 +99,7 @@ namespace ThePlannerAPI.Services
 
             var entity = new PlannerEvent
             {
-                Name = dto.name,
+                Name = dto.Name,
                 StartDate = dto.start_date,
                 EndDate = dto.end_date,
                 ResourceId = dto.Resource,
@@ -114,7 +114,7 @@ namespace ThePlannerAPI.Services
                 EditBy = dto.EditBy,
                 PlannerEventTypeId = dto.PlannerEventType,
                 TravelDays = dto.TravelDays,
-                IsCTS = dto.IsC
+                IsCTS = false
             };
 
             _context.PlannerEvents.Add(entity);
@@ -129,7 +129,7 @@ namespace ThePlannerAPI.Services
             var entity = await _context.PlannerEvents.FindAsync(id);
             if (entity == null) return null;
 
-            entity.Name = dto.name;
+            entity.Name = dto.Name;
             entity.StartDate = dto.start_date;
             entity.EndDate = dto.end_date;
             entity.ResourceId = dto.Resource;
@@ -144,8 +144,7 @@ namespace ThePlannerAPI.Services
             entity.EditBy = dto.EditBy;
             entity.PlannerEventTypeId = dto.PlannerEventType;
             entity.TravelDays = dto.TravelDays;
-            entity.IsCTS = dto.IsC;
-
+            
             await _context.SaveChangesAsync();
             return dto;
         }
