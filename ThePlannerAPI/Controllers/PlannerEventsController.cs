@@ -79,7 +79,7 @@ namespace ThePlannerAPI.Controllers
                 name = e.Name,
                 details = e.text,
                 color = e.Color,
-                jobID = e.jobID,
+                jobID = e.JobID,
                 shipName = e.ShipName,
                 jobCode = e.JobCode,
                 clientName = e.ClientName,

@@ -1,4 +1,4 @@
-namespace
+namespace ThePlannerAPI.DTOs
 {
     public abstract class ResourceBase
     {
@@ -6,10 +6,7 @@ namespace
         public string Label { get; set; }
 
     }
-}
 
-namespace ThePlannerAPI.DTOs
-{
     public class EmployeeDTO : ResourceBase
     {
         public string FirstName { get; set; }
