@@ -5494,19 +5494,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/cristinaroque/.nuget/packages/": {}
+    "/Users/cristina/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/cristinaroque/Documents/PlannerAPI/ThePlannerAPI/ThePlannerAPI/ThePlannerAPI.csproj",
+      "projectUniqueName": "/Users/cristina/Dev/bc-space-evolution/ThePlannerAPI/ThePlannerAPI/ThePlannerAPI.csproj",
       "projectName": "ThePlannerAPI",
-      "projectPath": "/Users/cristinaroque/Documents/PlannerAPI/ThePlannerAPI/ThePlannerAPI/ThePlannerAPI.csproj",
-      "packagesPath": "/Users/cristinaroque/.nuget/packages/",
-      "outputPath": "/Users/cristinaroque/Documents/PlannerAPI/ThePlannerAPI/ThePlannerAPI/obj/",
+      "projectPath": "/Users/cristina/Dev/bc-space-evolution/ThePlannerAPI/ThePlannerAPI/ThePlannerAPI.csproj",
+      "packagesPath": "/Users/cristina/.nuget/packages/",
+      "outputPath": "/Users/cristina/Dev/bc-space-evolution/ThePlannerAPI/ThePlannerAPI/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/cristinaroque/.nuget/NuGet/NuGet.Config"
+        "/Users/cristina/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -5530,7 +5530,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net8.0": {
@@ -5570,20 +5570,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.18, 8.0.18]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.osx-arm64",
-            "version": "[8.0.18, 8.0.18]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.18, 8.0.18]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -5592,7 +5578,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
